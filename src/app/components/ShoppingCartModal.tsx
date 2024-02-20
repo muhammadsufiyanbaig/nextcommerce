@@ -9,8 +9,6 @@ import {
 import Image from "../../../node_modules/next/image";
 import { useShoppingCart } from "../../../node_modules/use-shopping-cart/dist/react";
 
-
-
 export default function ShoppingCartModal() {
   const {
     cartCount,
@@ -26,7 +24,7 @@ export default function ShoppingCartModal() {
     event.preventDefault();
     try {
       const result = await redirectToCheckout();
-      if (result?.error) {
+      if (result) {
         console.log("result");
       }
     } catch (error) {
@@ -47,7 +45,7 @@ export default function ShoppingCartModal() {
                 <h1 className="py-6">You dont have any items</h1>
               ) : (
                 <>
-                  {Object.values(cartDetails ?? {}).map((entry:any) => (
+                  {Object.values(cartDetails ?? {}).map((entry: any) => (
                     <li key={entry.id} className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         <Image

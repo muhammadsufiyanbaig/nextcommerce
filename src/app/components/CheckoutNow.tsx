@@ -7,18 +7,18 @@ import { useShoppingCart } from "../../../node_modules/use-shopping-cart/dist/re
 
 import { ProductCart } from "./AddToBag";
 
-export default function CheckoutNow({
+ const  CheckoutNow = ({
   currency,
   description,
   image,
   name,
   price,
   price_id,
-}: ProductCart) {
+}: ProductCart)=> {
   const { checkoutSingleItem } = useShoppingCart();
 
-  function buyNow(priceId: string) {
-    checkoutSingleItem(priceId);
+  function buyNow(priceId: any) {
+   checkoutSingleItem(priceId);
   }
 
   const product = {
@@ -27,16 +27,20 @@ export default function CheckoutNow({
     price: price,
     currency: currency,
     image: urlFor(image).url(),
-    price_id: price_id,
+    priceid: price_id,
   };
+  console.log(product.priceid);
+  
   return (
     <Button
-      variant="outline"
-      onClick={() => {
-        buyNow(product.price_id);
-      }}
+    variant="outline"
+    onClick={() => {
+      buyNow(product.priceid);
+    }}
     >
       Checkout Now
     </Button>
   );
+
 }
+export default CheckoutNow;
