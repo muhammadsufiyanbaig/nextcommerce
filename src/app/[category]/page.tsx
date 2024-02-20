@@ -3,7 +3,6 @@ import { client, urlFor } from "@/lib/sanity";
 import { smiplifiedproduct } from '../interface';
 import Link from '../../../node_modules/next/link';
 import Image from '../../../node_modules/next/image';
-import category from '../../../sanity/schemas/category';
 async function getData(category:string) {
     const query = `*[_type == "product" && category->name == "${category}"] {
         id,
