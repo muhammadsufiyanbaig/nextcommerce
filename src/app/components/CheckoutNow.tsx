@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { urlFor } from "@/lib/sanity";
 import { useShoppingCart } from "../../../node_modules/use-shopping-cart/dist/react";
